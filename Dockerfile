@@ -30,6 +30,6 @@ WORKDIR /app
 
 RUN dnf install -y git glibc-static libstdc++-static && cd / && git clone --recursive https://github.com/zcash/zcash.git
 
-RUN cd /zcash && ./zcutil/build.sh -j 4
+RUN cd /zcash && ./zcutil/build.sh -j 1
 
 RUN cd /zcash && ./qa/zcash/full_test_suite.py && cd /zcash && ./qa/pull-tester/rpc-tests.sh
