@@ -17,7 +17,7 @@ build:
     image_name: fedora    ##replace with your repo and image name
     image_tag: latest
     pull: true
-    env: FOO=bar
+    env: SHIPPABLE_NODE_OPERATING_SYSTEM=fedora:latest
     options: "-e HOME=/root"
 
   # http://docs.shippable.com/ci/shippableyml/#ci
