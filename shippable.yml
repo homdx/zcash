@@ -1,9 +1,6 @@
 # Language setting http://docs.shippable.com/ci/languages/node
-language: fedora
+language: none
 
-fedora:
-  - 28
-  
 # use this to control what branches get built.
 # http://docs.shippable.com/ci/advancedOptions/branches/
 
@@ -16,10 +13,18 @@ branches:
 #    - master
 
 build:
+  pre_ci_boot:
+    image_name: fedora    ##replace with your repo and image name
+    image_tag: latest
+    pull: true
+    env: FOO=bar
+    options: "-e HOME=/root"
+
+build:
 
   # http://docs.shippable.com/ci/shippableyml/#ci
   ci:
     # npm mirrors can sometimes be flacky, better to use shippable_retry
     # http://docs.shippable.com/ci/advancedOptions/retry/
 
-    - time docker build -t zcash .
+    - time docker build -t fedora:latest .
